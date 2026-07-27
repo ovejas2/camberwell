@@ -258,7 +258,7 @@
   <div class="item"><strong>Pedidos</strong><span>Se cierran a las 15:00 hrs del día anterior</span></div>
   <div class="item"><strong>Despacho</strong><span>Al día siguiente del cierre, Región Metropolitana</span></div>
   <div class="item"><strong>Costo de envío</strong><span>Gratis sobre $50.000 neto · $2.500 bajo ese monto</span></div>
-  <div class="item"><strong>Precios</strong><span>$4.000 neto c/u · sugerido de reventa $5.000</span></div>
+  <div class="item"><strong>Precios</strong><span>$4.100 IVA incluido c/u · sugerido de reventa $5.000</span></div>
 </div>
 
 <main>
@@ -314,43 +314,44 @@
   // espacio en blanco con el nombre del producto.
   // ============================================================
   const PVP_SUGERIDO = 5000;
+  const PRECIO_VENTA_MAYORISTA = 4100; // IVA incluido
 
   const PRODUCTOS = [
-    { nombre: "Ross Chocolate", sku: "ROSS-CHOC", precio: 4000, foto: "ross-chocolate.png", color: "#8B5A2B",
+    { nombre: "Ross Chocolate", sku: "ROSS-CHOC", precio: 4100, foto: "ross-chocolate.png", color: "#8B5A2B",
       descripcion: "Un tabaco de cuerpo cálido y envolvente, con notas profundas de cacao tostado que suavizan cada calada. Pensado para quienes buscan algo denso y reconfortante, casi como un postre." },
-    { nombre: "Ross Frutos del Bosque", sku: "ROSS-FRUB", precio: 4000, foto: "ross-frutos-del-bosque.png", color: "#C23B7C",
+    { nombre: "Ross Frutos del Bosque", sku: "ROSS-FRUB", precio: 4100, foto: "ross-frutos-del-bosque.png", color: "#C23B7C",
       descripcion: "Una mezcla jugosa de moras, frambuesas y arándanos silvestres que aporta frescura y un dulzor natural, sin perder el carácter del tabaco de base." },
-    { nombre: "Ross Mango", sku: "ROSS-MANG", precio: 4000, foto: "ross-mango.png", color: "#D9A227",
+    { nombre: "Ross Mango", sku: "ROSS-MANG", precio: 4100, foto: "ross-mango.png", color: "#D9A227",
       descripcion: "Tropical y luminoso: el mango maduro le da un dulzor suave y aromático, ideal para quienes prefieren sabores frutales sin que resulten empalagosos." },
-    { nombre: "Ross Manzana Ice", sku: "ROSS-MANZ", precio: 4000, foto: "ross-manzana-ice.png", color: "#4FB3A5",
+    { nombre: "Ross Manzana Ice", sku: "ROSS-MANZ", precio: 4100, foto: "ross-manzana-ice.png", color: "#4FB3A5",
       descripcion: "Manzana verde fresca con un toque mentolado helado al final — crujiente y refrescante, perfecto para los días de calor." },
-    { nombre: "Ross Maracuyá", sku: "ROSS-MARA", precio: 4000, foto: "ross-maracuya.png", color: "#E0B400",
+    { nombre: "Ross Maracuyá", sku: "ROSS-MARA", precio: 4100, foto: "ross-maracuya.png", color: "#E0B400",
       descripcion: "Ácido y tropical, el maracuyá aporta una acidez viva que despierta el paladar — un sabor intenso para quienes buscan algo fuera de lo común." },
-    { nombre: "Ross Menta", sku: "ROSS-MENT", precio: 4000, foto: "ross-menta.png", color: "#4C9A4C",
+    { nombre: "Ross Menta", sku: "ROSS-MENT", precio: 4100, foto: "ross-menta.png", color: "#4C9A4C",
       descripcion: "El clásico de siempre: frescura limpia y directa, sin distracciones. Ideal para quienes prefieren un sabor simple y consistente en cada pack." },
-    { nombre: "Ross Menta Berries", sku: "ROSS-MEBE", precio: 4000, foto: "ross-menta-berries.png", color: "#7FAE6A",
+    { nombre: "Ross Menta Berries", sku: "ROSS-MEBE", precio: 4100, foto: "ross-menta-berries.png", color: "#7FAE6A",
       descripcion: "La frescura de la menta se encuentra con el dulzor de los berries — un balance entre lo frío y lo frutal que sorprende en cada calada." },
-    { nombre: "Ross Menta Chocolate", sku: "ROSS-MECH", precio: 4000, foto: "ross-menta-chocolate.png", color: "#6B7A4E",
+    { nombre: "Ross Menta Chocolate", sku: "ROSS-MECH", precio: 4100, foto: "ross-menta-chocolate.png", color: "#6B7A4E",
       descripcion: "Una combinación poco común: el frescor de la menta contrasta con la profundidad del chocolate, como una menta de after-dinner en formato tabaco." },
-    { nombre: "Ross Natural", sku: "ROSS-NATU", precio: 4000, foto: "ross-natural.png", color: "#5FA8D3",
+    { nombre: "Ross Natural", sku: "ROSS-NATU", precio: 4100, foto: "ross-natural.png", color: "#5FA8D3",
       descripcion: "Sin sabores agregados — el perfil más puro de la hoja, para quienes prefieren el tabaco tal cual es, sin dulzores ni aromas de por medio." },
-    { nombre: "Ross Sandía", sku: "ROSS-SAND", precio: 4000, foto: "ross-sandia.png", color: "#D1444A",
+    { nombre: "Ross Sandía", sku: "ROSS-SAND", precio: 4100, foto: "ross-sandia.png", color: "#D1444A",
       descripcion: "Dulce y veraniego, con esa nota jugosa característica de la sandía recién cortada. Liviano y fácil de disfrutar." },
-    { nombre: "Ross Uva", sku: "ROSS-UVA", precio: 4000, foto: "ross-uva.png", color: "#8B5FBF",
+    { nombre: "Ross Uva", sku: "ROSS-UVA", precio: 4100, foto: "ross-uva.png", color: "#8B5FBF",
       descripcion: "Notas profundas de uva concord, dulces y un poco vinosas — un sabor con carácter que se distingue del resto de la línea frutal." },
-    { nombre: "Ross Vainilla", sku: "ROSS-VAIN", precio: 4000, foto: "ross-vainilla.png", color: "#E8C547",
+    { nombre: "Ross Vainilla", sku: "ROSS-VAIN", precio: 4100, foto: "ross-vainilla.png", color: "#E8C547",
       descripcion: "Suave y cremosa, la vainilla suaviza el tabaco de base dejando un aroma dulce y envolvente, sin resultar pesado." },
-    { nombre: "Ross Arándanos", sku: "ROSS-ARAN", precio: 4000, foto: "ross-arandanos.png", color: "#5B6BC0",
+    { nombre: "Ross Arándanos", sku: "ROSS-ARAN", precio: 4100, foto: "ross-arandanos.png", color: "#5B6BC0",
       descripcion: "Un perfil frutal más sobrio: el arándano aporta dulzor con un fondo ligeramente ácido, distinto a los frutos rojos más comunes." },
-    { nombre: "Ross Cappuccino", sku: "ROSS-CAPP", precio: 4000, foto: "ross-cappuccino.png", color: "#9C6B3F",
+    { nombre: "Ross Cappuccino", sku: "ROSS-CAPP", precio: 4100, foto: "ross-cappuccino.png", color: "#9C6B3F",
       descripcion: "Notas de café con leche y un toque de espuma dulce — cálido y aromático, para quienes disfrutan sabores de sobremesa." },
-    { nombre: "Ross Caramelo", sku: "ROSS-CARA", precio: 4000, foto: "ross-caramelo.png", color: "#D98A3D",
+    { nombre: "Ross Caramelo", sku: "ROSS-CARA", precio: 4100, foto: "ross-caramelo.png", color: "#D98A3D",
       descripcion: "Dulzor tostado y envolvente, como caramelo derretido — un sabor reconfortante que suaviza cada calada de principio a fin." },
-    { nombre: "Ross Cereza", sku: "ROSS-CERE", precio: 4000, foto: "ross-cereza.png", color: "#C23B4A",
+    { nombre: "Ross Cereza", sku: "ROSS-CERE", precio: 4100, foto: "ross-cereza.png", color: "#C23B4A",
       descripcion: "Intensa y dulce, con ese característico toque ácido de la cereza madura. Uno de los sabores frutales más pedidos de la línea." },
-    { nombre: "Ross Chicle", sku: "ROSS-CHIC", precio: 4000, foto: "ross-chicle.png", color: "#E37FAE",
+    { nombre: "Ross Chicle", sku: "ROSS-CHIC", precio: 4100, foto: "ross-chicle.png", color: "#E37FAE",
       descripcion: "Dulce y nostálgico — recuerda al chicle de bomba clásico, un sabor lúdico y distinto dentro de la colección." },
-    { nombre: "Ross Choco Berries", sku: "ROSS-CHBE", precio: 4000, foto: "ross-choco-berries.png", color: "#A94868",
+    { nombre: "Ross Choco Berries", sku: "ROSS-CHBE", precio: 4100, foto: "ross-choco-berries.png", color: "#A94868",
       descripcion: "Chocolate y frutos rojos en una misma calada — dulce, profundo y con un final ligeramente ácido que equilibra el conjunto." },
   ];
 
@@ -364,7 +365,7 @@
       <h3>${p.nombre}</h3>
       <div class="sku">SKU: ${p.sku} · 45gr aprox.</div>
       <div class="price">$${p.precio.toLocaleString("es-CL")}</div>
-      <div class="price-note">neto, mayorista</div>
+      <div class="price-note">IVA incluido, mayorista</div>
       <div class="price-note">Precio sugerido de venta: $${PVP_SUGERIDO.toLocaleString("es-CL")}</div>
     </div>
   `).join("");
@@ -398,7 +399,7 @@
       <div class="sku" id="modalSku"></div>
       <p class="modal-descripcion" id="modalDescripcion"></p>
       <div class="modal-precios">
-        <div><span class="price-note">Neto mayorista</span><div class="price" id="modalPrecioNeto"></div></div>
+        <div><span class="price-note">IVA incluido, mayorista</span><div class="price" id="modalPrecioNeto"></div></div>
         <div><span class="price-note">Sugerido de venta</span><div class="price" id="modalPrecioSugerido"></div></div>
       </div>
       <div class="cta-buttons" style="margin-top:20px;">
