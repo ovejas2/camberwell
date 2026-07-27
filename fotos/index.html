@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<!-- Catálogo privado: no debe indexarse ni promocionarse -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Camberwell — Catálogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #17110d;
+    --surface: #241b15;
+    --surface-raised: #2e231b;
+    --border: #3d3024;
+    --border-gold: #6b5636;
+    --gold: #b8935a;
+    --gold-bright: #d4af73;
+    --text: #ede6da;
+    --text-muted: #a89880;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Inter", -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    background-image: radial-gradient(ellipse at top, rgba(184,147,90,0.06), transparent 60%);
+  }
+
+  header {
+    text-align: center;
+    padding: 48px 20px 32px;
+    border-bottom: 1px solid var(--border-gold);
+  }
+  .brandmark {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .brandmark-rule {
+    width: 50px;
+    height: 1px;
+    background: var(--border-gold);
+    margin: 10px auto 14px;
+  }
+  header p { color: var(--text-muted); font-size: 14px; margin: 0; }
+
+  .info-bar {
+    max-width: 780px;
+    margin: 28px auto 0;
+    padding: 18px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    font-size: 13px;
+  }
+  .info-bar .item strong { display: block; color: var(--gold-bright); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .info-bar .item span { color: var(--text-muted); }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 36px 20px 80px; }
+
+  .edit-note {
+    max-width: 780px;
+    margin: 0 auto 32px;
+    padding: 14px 18px;
+    background: rgba(184,147,90,0.08);
+    border-left: 2px solid var(--gold);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .edit-note code { color: var(--gold-bright); font-family: var(--font-mono); }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 22px;
+  }
+  .product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+  }
+  .product-card:hover { border-color: var(--border-gold); transform: translateY(-2px); }
+  .product-photo {
+    width: 100%;
+    height: 220px;
+    border-radius: 3px;
+    background: var(--surface-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 14px;
+    object-fit: contain;
+    text-align: center;
+    padding: 10px;
+  }
+  .product-card h3 { font-family: var(--font-display); font-weight: 500; font-size: 17px; margin: 4px 0 6px; }
+  .product-card .sku { color: var(--text-muted); font-size: 12px; margin-bottom: 8px; }
+  .price {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--gold-bright);
+  }
+  .price-note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  .cta-bar {
+    max-width: 780px;
+    margin: 56px auto 0;
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+  }
+  .cta-bar h2 { font-family: var(--font-display); font-weight: 600; margin: 0 0 10px; font-size: 22px; }
+  .cta-bar p { color: var(--text-muted); font-size: 14px; margin: 0 0 20px; }
+  .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-primary { background: var(--gold); color: #1a1208; }
+  .btn-primary:hover { background: var(--gold-bright); }
+  .btn-secondary { background: transparent; color: var(--gold-bright); border: 1px solid var(--border-gold); }
+  .btn-secondary:hover { border-color: var(--gold); }
+
+  footer { text-align: center; padding: 24px; color: var(--text-muted); font-size: 12px; }
+
+  .quienes-somos {
+    max-width: 780px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+  .quienes-somos h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--gold);
+    margin: 0 0 12px;
+  }
+  .quienes-somos > p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 28px;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    text-align: left;
+  }
+  .trust-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .trust-item strong {
+    display: block;
+    font-family: var(--font-display);
+    color: var(--gold-bright);
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .trust-item span { color: var(--text-muted); font-size: 12px; line-height: 1.5; }
+
+  /* ---------- Ficha de sabor (modal) ---------- */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,7,5,0.75);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+  }
+  .modal-card {
+    background: var(--surface);
+    border: 2px solid var(--border-gold);
+    border-radius: 6px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+  }
+  .modal-accent {
+    height: 6px;
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+  }
+  .modal-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: rgba(0,0,0,0.35);
+    border: none;
+    color: var(--text);
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 2;
+  }
+  .modal-photo {
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    background: var(--surface-raised);
+    display: block;
+  }
+  .modal-body { padding: 28px 30px 32px; }
+  .modal-body h2 { font-family: var(--font-display); font-weight: 600; font-size: 26px; margin: 0 0 6px; }
+  .modal-descripcion { color: var(--text); font-size: 14px; line-height: 1.6; margin: 18px 0; }
+  .modal-precios {
+    display: flex;
+    gap: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="fotos/camberwell-logo.png" alt="Camberwell" style="max-width: 280px; width: 80%; height: auto;" />
+  <div class="brandmark-rule"></div>
+  <p>Catálogo mayorista — solo para clientes contactados directamente</p>
+</header>
+
+<div class="info-bar">
+  <div class="item"><strong>Pedidos</strong><span>Se cierran a las 15:00 hrs del día anterior</span></div>
+  <div class="item"><strong>Despacho</strong><span>Al día siguiente del cierre, Región Metropolitana</span></div>
+  <div class="item"><strong>Costo de envío</strong><span>Gratis sobre $50.000 neto · $2.500 bajo ese monto</span></div>
+  <div class="item"><strong>Precios</strong><span>$4.100 IVA incluido c/u · sugerido de reventa $5.000</span></div>
+</div>
+
+<main>
+  <img src="fotos/ross-portada.png" alt="Colección Ross" style="width: 100%; border-radius: 4px; margin-bottom: 32px; border: 1px solid var(--border-gold);" />
+
+  <div class="quienes-somos">
+    <h2>Camberwell</h2>
+    <p>Distribuimos tabaco premium directo a minimarkets y almacenes de la Región Metropolitana. Trabajamos con despacho propio y stock permanente, para que nunca te falte lo que más rotación tiene en tu mesón.</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <strong>Despacho propio</strong>
+        <span>Cubrimos toda la RM con reparto directo, no por courier externo.</span>
+      </div>
+      <div class="trust-item">
+        <strong>Pedidos cerrados a las 15:00 hrs</strong>
+        <span>Despachados al día siguiente, sin excepciones.</span>
+      </div>
+      <div class="trust-item">
+        <strong>Respuesta rápida</strong>
+        <span>Confirmamos tu pedido por WhatsApp el mismo día.</span>
+      </div>
+      <div class="trust-item">
+        <strong>Boleta o factura</strong>
+        <span>Emitimos boleta o factura en cada pedido, según lo que necesites.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="edit-note">
+    Esta página funciona con una lista simple al principio del archivo (busca <code>PRODUCTOS</code> en el código). Reemplaza los productos de ejemplo por los tuyos: nombre, precio, y el nombre del archivo de foto que me vayas mandando. No necesitas programar nada más — solo editar esos datos.
+  </div>
+
+  <div class="product-grid" id="grid"></div>
+</main>
+
+<div class="cta-bar">
+  <h2>¿Listo para pedir?</h2>
+  <p>Escríbenos directo — confirmamos stock y cerramos el pedido por este medio.</p>
+  <div class="cta-buttons">
+    <a class="btn btn-primary" href="https://wa.me/56958252637" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    <a class="btn btn-secondary" href="mailto:ealvarezvaccaro@gmail.com">Escribir por email</a>
+  </div>
+</div>
+
+<footer>Camberwell — catálogo de acceso privado, no indexado.</footer>
+
+<script>
+  // ============================================================
+  // PRODUCTOS — edita esta lista con tus productos reales.
+  // "foto" = nombre del archivo de imagen que pondrás en la carpeta
+  // "fotos/" al lado de este archivo (ej: fotos/producto1.jpg).
+  // Si no tienes la foto todavía, deja foto: null y se muestra un
+  // espacio en blanco con el nombre del producto.
+  // ============================================================
+  const PVP_SUGERIDO = 5000;
+  const PRECIO_VENTA_MAYORISTA = 4100; // IVA incluido
+
+  const PRODUCTOS = [
+    { nombre: "Ross Chocolate", sku: "ROSS-CHOC", precio: 4100, foto: "ross-chocolate.png", color: "#8B5A2B",
+      descripcion: "Un tabaco de cuerpo cálido y envolvente, con notas profundas de cacao tostado que suavizan cada calada. Pensado para quienes buscan algo denso y reconfortante, casi como un postre." },
+    { nombre: "Ross Frutos del Bosque", sku: "ROSS-FRUB", precio: 4100, foto: "ross-frutos-del-bosque.png", color: "#C23B7C",
+      descripcion: "Una mezcla jugosa de moras, frambuesas y arándanos silvestres que aporta frescura y un dulzor natural, sin perder el carácter del tabaco de base." },
+    { nombre: "Ross Mango", sku: "ROSS-MANG", precio: 4100, foto: "ross-mango.png", color: "#D9A227",
+      descripcion: "Tropical y luminoso: el mango maduro le da un dulzor suave y aromático, ideal para quienes prefieren sabores frutales sin que resulten empalagosos." },
+    { nombre: "Ross Manzana Ice", sku: "ROSS-MANZ", precio: 4100, foto: "ross-manzana-ice.png", color: "#4FB3A5",
+      descripcion: "Manzana verde fresca con un toque mentolado helado al final — crujiente y refrescante, perfecto para los días de calor." },
+    { nombre: "Ross Maracuyá", sku: "ROSS-MARA", precio: 4100, foto: "ross-maracuya.png", color: "#E0B400",
+      descripcion: "Ácido y tropical, el maracuyá aporta una acidez viva que despierta el paladar — un sabor intenso para quienes buscan algo fuera de lo común." },
+    { nombre: "Ross Menta", sku: "ROSS-MENT", precio: 4100, foto: "ross-menta.png", color: "#4C9A4C",
+      descripcion: "El clásico de siempre: frescura limpia y directa, sin distracciones. Ideal para quienes prefieren un sabor simple y consistente en cada pack." },
+    { nombre: "Ross Menta Berries", sku: "ROSS-MEBE", precio: 4100, foto: "ross-menta-berries.png", color: "#7FAE6A",
+      descripcion: "La frescura de la menta se encuentra con el dulzor de los berries — un balance entre lo frío y lo frutal que sorprende en cada calada." },
+    { nombre: "Ross Menta Chocolate", sku: "ROSS-MECH", precio: 4100, foto: "ross-menta-chocolate.png", color: "#6B7A4E",
+      descripcion: "Una combinación poco común: el frescor de la menta contrasta con la profundidad del chocolate, como una menta de after-dinner en formato tabaco." },
+    { nombre: "Ross Natural", sku: "ROSS-NATU", precio: 4100, foto: "ross-natural.png", color: "#5FA8D3",
+      descripcion: "Sin sabores agregados — el perfil más puro de la hoja, para quienes prefieren el tabaco tal cual es, sin dulzores ni aromas de por medio." },
+    { nombre: "Ross Sandía", sku: "ROSS-SAND", precio: 4100, foto: "ross-sandia.png", color: "#D1444A",
+      descripcion: "Dulce y veraniego, con esa nota jugosa característica de la sandía recién cortada. Liviano y fácil de disfrutar." },
+    { nombre: "Ross Uva", sku: "ROSS-UVA", precio: 4100, foto: "ross-uva.png", color: "#8B5FBF",
+      descripcion: "Notas profundas de uva concord, dulces y un poco vinosas — un sabor con carácter que se distingue del resto de la línea frutal." },
+    { nombre: "Ross Vainilla", sku: "ROSS-VAIN", precio: 4100, foto: "ross-vainilla.png", color: "#E8C547",
+      descripcion: "Suave y cremosa, la vainilla suaviza el tabaco de base dejando un aroma dulce y envolvente, sin resultar pesado." },
+    { nombre: "Ross Arándanos", sku: "ROSS-ARAN", precio: 4100, foto: "ross-arandanos.png", color: "#5B6BC0",
+      descripcion: "Un perfil frutal más sobrio: el arándano aporta dulzor con un fondo ligeramente ácido, distinto a los frutos rojos más comunes." },
+    { nombre: "Ross Cappuccino", sku: "ROSS-CAPP", precio: 4100, foto: "ross-cappuccino.png", color: "#9C6B3F",
+      descripcion: "Notas de café con leche y un toque de espuma dulce — cálido y aromático, para quienes disfrutan sabores de sobremesa." },
+    { nombre: "Ross Caramelo", sku: "ROSS-CARA", precio: 4100, foto: "ross-caramelo.png", color: "#D98A3D",
+      descripcion: "Dulzor tostado y envolvente, como caramelo derretido — un sabor reconfortante que suaviza cada calada de principio a fin." },
+    { nombre: "Ross Cereza", sku: "ROSS-CERE", precio: 4100, foto: "ross-cereza.png", color: "#C23B4A",
+      descripcion: "Intensa y dulce, con ese característico toque ácido de la cereza madura. Uno de los sabores frutales más pedidos de la línea." },
+    { nombre: "Ross Chicle", sku: "ROSS-CHIC", precio: 4100, foto: "ross-chicle.png", color: "#E37FAE",
+      descripcion: "Dulce y nostálgico — recuerda al chicle de bomba clásico, un sabor lúdico y distinto dentro de la colección." },
+    { nombre: "Ross Choco Berries", sku: "ROSS-CHBE", precio: 4100, foto: "ross-choco-berries.png", color: "#A94868",
+      descripcion: "Chocolate y frutos rojos en una misma calada — dulce, profundo y con un final ligeramente ácido que equilibra el conjunto." },
+  ];
+
+  const grid = document.getElementById("grid");
+  grid.innerHTML = PRODUCTOS.map((p, i) => `
+    <div class="product-card" onclick="abrirFicha(${i})">
+      ${p.foto
+        ? `<img class="product-photo" src="fotos/${p.foto}" alt="${p.nombre}">`
+        : `<div class="product-photo">Foto pendiente</div>`
+      }
+      <h3>${p.nombre}</h3>
+      <div class="sku">SKU: ${p.sku} · 45gr aprox.</div>
+      <div class="price">$${p.precio.toLocaleString("es-CL")}</div>
+      <div class="price-note">IVA incluido, mayorista</div>
+      <div class="price-note">Precio sugerido de venta: $${PVP_SUGERIDO.toLocaleString("es-CL")}</div>
+    </div>
+  `).join("");
+
+  function abrirFicha(i) {
+    const p = PRODUCTOS[i];
+    document.getElementById("modalOverlay").style.display = "flex";
+    document.getElementById("modalAccent").style.background = p.color;
+    document.getElementById("modalFoto").src = "fotos/" + p.foto;
+    document.getElementById("modalFoto").alt = p.nombre;
+    document.getElementById("modalNombre").textContent = p.nombre;
+    document.getElementById("modalNombre").style.color = p.color;
+    document.getElementById("modalSku").textContent = "SKU: " + p.sku + " · 45gr aprox.";
+    document.getElementById("modalDescripcion").textContent = p.descripcion;
+    document.getElementById("modalPrecioNeto").textContent = "$" + p.precio.toLocaleString("es-CL");
+    document.getElementById("modalPrecioSugerido").textContent = "$" + PVP_SUGERIDO.toLocaleString("es-CL");
+    document.getElementById("modalCard").style.borderColor = p.color;
+  }
+  function cerrarFicha() {
+    document.getElementById("modalOverlay").style.display = "none";
+  }
+</script>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this) cerrarFicha()">
+  <div class="modal-card" id="modalCard">
+    <div class="modal-accent" id="modalAccent"></div>
+    <button class="modal-close" onclick="cerrarFicha()">✕</button>
+    <img class="modal-photo" id="modalFoto" src="" alt="" />
+    <div class="modal-body">
+      <h2 id="modalNombre"></h2>
+      <div class="sku" id="modalSku"></div>
+      <p class="modal-descripcion" id="modalDescripcion"></p>
+      <div class="modal-precios">
+        <div><span class="price-note">IVA incluido, mayorista</span><div class="price" id="modalPrecioNeto"></div></div>
+        <div><span class="price-note">Sugerido de venta</span><div class="price" id="modalPrecioSugerido"></div></div>
+      </div>
+      <div class="cta-buttons" style="margin-top:20px;">
+        <a class="btn btn-primary" href="https://wa.me/56958252637" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
